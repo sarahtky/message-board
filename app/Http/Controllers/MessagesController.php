@@ -50,6 +50,7 @@ class MessagesController extends Controller
         ]);
 
         $message = new Message;
+        $message->title = $request->title;    // 追加
         $message->content = $request->content;
         $message->save();
 
@@ -81,7 +82,7 @@ class MessagesController extends Controller
     {
         $message = Message::find($id);
         
-        return view('message.edit', [
+        return view('messages.edit', [
             'message' => $message,
             ]);
     }
@@ -101,6 +102,7 @@ class MessagesController extends Controller
         ]);
 
         $message = Message::find($id);
+        $message->title = $request->title;
         $message->content = $request->content;
         $message->save();
 
